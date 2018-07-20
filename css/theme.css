@@ -7,3 +7,8 @@ a {color:white;text-decoration:none;}
 a:visited {color:white;text-decoration:none;}
 a:hover {color:white;text-decoration:none;}
 a:active {color:white;text-decoration:none;}
+.footer {background-color:#e6e6e6;border-radius:0px;padding:10px;color:black;}
+a.footerlink {color:black;}
+a.footerlink:visited {color:black;}
+a.footerlink:active {color:black;}
+a.footerlink:hover {color:black;text-decoration:underline;}
