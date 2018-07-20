@@ -12,4 +12,4 @@ a.footerlink {color:black;}
 a.footerlink:visited {color:black;}
 a.footerlink:active {color:black;}
 a.footerlink:hover {color:black;text-decoration:underline;}
-table th td tr {border:none; text-align:center;}
+table th td tr {border:none; text-align:center;padding:30px;}
