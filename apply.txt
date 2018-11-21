@@ -1,0 +1,17 @@
+What would you like to be referred as?
+How can we contact you and what's your username on that platform? (Email, Discord, Twitter, etc.)
+What projects would you like to help us work on? (MazeZone, Youtube Channel, GD Stuff)
+What would you like to do to help? (Code, Art, Animation, Level Design, Music, UI Design, Bug Testing) [You can choose more than one]:
+Please give us a portfolio or links to examples of your skills:
+Give us an introduction:
+
+
+Music (Only answer if you are applying for a music artist or helping with music):
+
+Are you ok with your music that YOU select and created being used in our projects. We will ask you for permission and make sure to give you credit.
+You can only allow us to use your music that you select. We don't have the rights to all of your tracks.
+The music may be used in not only non-profit projects but commercial projects; if you want you can ask for rev-share.
+You can also take down your music from our projects at anytime. (Yes / No)
+
+Would you like to create music for our projects?
+(Yes / No)
