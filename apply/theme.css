@@ -1,0 +1,16 @@
+body {background-color:black;color:white;}
+div {background-color:#003366;color:white;text-align:center; margin-top:10px;padding:50px;}
+.nav {background-color:#003366;color:white;padding:50px;}
+.navbutton {background-color:#003366,color:white;border-radius:4px;border-color:none;padding:40px; text-decoration:none;}
+.navbutton:hover {background-color:blue;transition-duration:0.4s;}
+a {color:white;text-decoration:none;}
+a:visited {color:white;text-decoration:none;}
+a:hover {color:white;text-decoration:none;}
+a:active {color:white;text-decoration:none;}
+.footer {background-color:#e6e6e6;border-radius:0px;padding:10px;color:black;}
+a.footerlink {color:black;}
+a.footerlink:visited {color:black;}
+a.footerlink:active {color:black;}
+a.footerlink:hover {color:black;text-decoration:underline;}
+table th td tr {border:none; text-align:center;padding:30px;color:black;}
+td {padding:50px;margin-left:50px;margin-right:50px;}
