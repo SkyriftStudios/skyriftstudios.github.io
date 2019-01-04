@@ -1,6 +1,21 @@
+@font-face {
+	font-family: 'NunitoSans';
+	src: url('NunitoSans.ttf'); 
+	src: 
+		local('NunitoSans'),
+		local('Lovely-Font'),
+		url('NunitoSans.ttf') 
+		format('truetype');
+}
+
+
+
 body {
-    background-color:darkgray;
-    font-family:sans-serif;
+	background:url(clouds-bg.png);
+	background-size: auto;
+    background-color: darkgray;
+    font-family: NunitoSans, sans-serif;
+	color:white;
 }
 
 
@@ -11,10 +26,11 @@ body {
     width:50%;
 }
 .header {
-background-color:#919191ff;
+background-color:#0167FE;
 font-family:sans-serif;
 width:50;
 height:50%;
+border:1px solid #FFFFFF;
 }
 .banner {
     display: block;
@@ -31,8 +47,8 @@ height:50%;
     height:250px;
 }
 .content {
-    background-color:#ffffff;
-    border:1px solid #000000;
+    background-color:rgba(0,153,255,0.25);
+    border:1px solid #FFFFFF;
     margin-left:auto;
     margin-right:auto;
     width:50% - 5px;
@@ -50,17 +66,18 @@ height:50%;
 margin:2px;
 padding:3px;
 font-weight:400;
-border:1px solid #888888;
+border:0px solid white;
 border-radius:3px;
-color:#000000;
+color:white;
 text-decoration:none;
+font-family:NunitoSans, sans-serif;
 white-space:nowrap;
 line-height:28px;
-background-color:rgb(200, 200, 200);
+background-color:#0167FE;
 }
 .button:hover
 {
-background-color:#DBDBDB;
+background-color:rgba(255,255,255,0.25);
 text-decoration:none;
 }
 #buttons
