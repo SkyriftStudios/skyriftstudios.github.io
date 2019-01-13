@@ -1,3 +1,3 @@
-# skyriftstudios.github.io
+# Skyrift.tk
 
-The offical Skyrift Website Being Developed By Skyrift Studios
+The Offical Website of Skyrift Studios,  Developer Studio.
