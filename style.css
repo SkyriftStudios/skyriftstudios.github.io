@@ -8,7 +8,11 @@
 		format('truetype');
 }
 
-
+.navbar {
+	width:100%;
+	background-color: #D1D1D1;
+	background-image: linear-gradient(#D1D1D1, #747474);
+}
 
 body {
 	background:url(clouds-bg.png);
@@ -79,6 +83,38 @@ background-color:#0167FE;
 {
 background-color:rgba(255,255,255,0.25);
 text-decoration:none;
+}
+
+.button2 {
+	margin:2px;
+	padding:3px;
+	font-weight:400;
+	border:0px solid white;
+	border-radius:3px;
+	color:white;
+	text-decoration:none;
+	white-space:nowrap;
+	line-height:28px;
+}
+.button2:hover {
+	background-color:darkgray;
+	color: lightgray;
+}
+
+.mainbutton {
+	margin:2px;
+	padding:3px;
+	font-weight:400;
+	border:0px;
+	border-radius:2px;
+	color:white;
+	text-decoration:none;
+	white-space:nowrap;
+	line-height:28px;
+}
+.mainbutton:hover {
+	background-color:white;
+	color: black;
 }
 #buttons
 {
