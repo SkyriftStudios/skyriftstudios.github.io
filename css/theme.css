@@ -14,3 +14,7 @@ a.footerlink:active {color:black;}
 a.footerlink:hover {color:black;text-decoration:underline;}
 table th td tr {border:none; text-align:center;padding:30px;color:black;}
 td {padding:50px;margin-left:50px;margin-right:50px;}
+a {
+  color:white;
+  text-decoration:underline;
+}
