@@ -1,5 +1,11 @@
-@keyframes project-bg-hover {
+@keyframes rotate-on-hover {
     0%  {rotate:-4deg;}
     50%  {rotate:4deg;}
     100%  {rotate:-4deg;}
+}
+.rotate-on-hover:hover, .project-bg:hover, .social-icon:hover {
+    animation-name:rotate-on-hover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
 }

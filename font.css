@@ -36,8 +36,8 @@ h3 {
     font-family: NunitoSans, sans-serif;
 }
 .make-white {
-    filter: brightness(100%), saturate(100%), contrast(0%),
+	filter: brightness(0) invert(1);
 }
 .make-black {
-    filter: brightness(0%), saturate(100%), contrast(0%),
+    filter: brightness(0);
 }

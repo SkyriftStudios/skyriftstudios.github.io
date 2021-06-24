@@ -11,24 +11,42 @@
     <body>
         <div id="main-panel">  
             <!-- Header -->
-            <div class="">
+            <div id="navbar">
+               
                 <img class="banner" src="skyriftstudiosbanner.png"></img>
                 <div class="navbar">
                     <p id="buttons" class="center">
                         <a class="navbar-button" href="index.html">Home</a>
-                        <a href="#nav-games" class="navbar-button" >Games</a>        
-                        <a class="navbar-button" href="about.html">About</a>
-                        <a class="navbar-button" href="links.html">Links</a>
+                        <a href="index.html#nav-about" class="navbar-button">About</a>
+                        <a href="index.html#nav-projects" class="navbar-button">Projects</a>     
+                        <a href="index.html#nav-tutorials" class="navbar-button">Tutorials</a>     
+                        <a class="navbar-button" href="index.html#nav-socials">Socials</a>
                     </p>
                 </div>
+                
             </div>
             <!-- Introduction -->
+            
+            <div class="padding-divider"></div>
+
             <div>
-                <p class="center font-Abel font-medium">Hello, <br> I'm SkyanSam.</p>
+                <a class="anchor" id="nav-about"></a>
+                <p style="padding-top:100px;" class="center font-Abel about-text" data-aos="fade-right">Hello,</p>
+                <p class="center font-Abel about-text" data-aos="fade-left">I'm SkyanSam.</p>
             </div>
+
+            <div class="padding-divider"></div>
+
             <div>
-                <p class="center font-Abel font-medium">I use tools such as</p>
-                <table class="center">
+                <p class="center3 font-Abel about-text-2" data-aos="zoom-out">I'm a young game developer, content creator,
+                <p class="center3 font-Abel about-text-2" data-aos="flip-down">and an aspiring software developer.</p>
+            </div>
+
+            <div class="padding-divider"></div>
+
+            <div>
+                <p class="center font-Abel about-text" data-aos="zoom-out">I use tools such as</p>
+                <table class="center" data-aos="fade-in" style="margin-left:235px;">
                     <tr class="center">
                         <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/csharp.svg"></img></td>
                         <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/unity.png"></img></td>
@@ -42,20 +60,24 @@
                 </table>
                 <p id="display-tool" class="center font-Abel font-medium">_</p>
             </div>
+            
+            <div class="padding-divider"></div>
 
-            <!-- Games -->
+            <!-- Projects -->
             <div>
-                <h1 class="center"><a id="nav-games"></a>Games</h1>
+                <a class="anchor" id="nav-projects"></a>
+                <h1 class="center">Projects</h1>
+                <h2 class="center rotate-on-hover"><a href="all-projects.html" style="color:cyan;"><i>(projects listed by programming language)</i></a></h2>
                 <table class="center">
                     <tr>
                         <td><div class="project-bg">
-                                <a href="https://skyansam.itch.io/break-it-down">
+                                <a href="https://skyansam.itch.io/break-it-down" target="_blank">
                                     <img style="padding-top:10%" src="https://img.itch.zone/aW1nLzYyODc0MDMucG5n/315x250%23c/l0RCRa.png"></img>
                                 </a>
                                 <h3 style="color:black;">Break It Down</h3>
                             </div></td>
                         <td><div class="project-bg">
-                            <a href="https://skyansam.itch.io/corruption">
+                            <a href="https://skyansam.itch.io/corruption" target="_blank">
                                 <img style="padding-top:10%" src="https://img.itch.zone/aW1nLzQ2NzI4NTQucG5n/315x250%23c/dslOPU.png"></img>
                             </a>
                             <h3 style="color:black;">Corrupter of the Souls</h3>
@@ -63,18 +85,54 @@
                     </tr>
                 </table>
             </div>
+
+            <div class="padding-divider"></div>
+
+            <!-- Tutorials -->
+            <div>
+                    <a class="anchor" id="nav-tutorials"></a>
+                    <h1 class="center" data-aos="zoom-in">Tutorials</h1>
+                    <div class="center" style="margin-right:600px;">
+                    <table>
+                        <tr>
+                            <td data-aos="fade-left"><div class="project-bg" >
+                                <a href="https://www.youtube.com/watch?v=o97i5ig3rVs&list=PL_6NqQ-xFCvWnAtPbrUPOcweFHsIMBXKo" target="_blank">
+                                    <img style="padding-top:10%; width:300px;" src="https://i9.ytimg.com/vi/bTfN6FBibCM/maxresdefault.jpg?time=1624555800000&sqp=CJiC04YG&rs=AOn4CLCrm340agl1VejPbbmENQrrWBdZ8g"></img>
+                                </a>
+                                <h3 style="color:black;">Creating a Google Docs Addon From Scratch</h3>
+                            </div></td>
+                            <td data-aos="zoom-in"><div class="project-bg">
+                                <a href="https://www.youtube.com/playlist?list=PL_6NqQ-xFCvV8-4vGaKuxjZZyHL2_3BHi" target="_blank">
+                                    <img style="padding-top:10%; width:300px;" src="https://i9.ytimg.com/vi/UZWEkpWgs-4/maxresdefault.jpg?time=1624556100000&sqp=CMSE04YG&rs=AOn4CLAL2_mu5VySB0dwqhYCtW-ghBqbAw"></img>
+                                </a>
+                                <h3 style="color:black;">Creating a Bullet Hell Framework In Unity</h3>
+                            </div></td>
+                            <td data-aos="fade-right"><div class="project-bg">
+                                <a href="https://youtu.be/AnQCs_qgp1c" target="_blank">
+                                    <img style="padding-top:10%; width:300px;" src="https://i9.ytimg.com/vi_webp/AnQCs_qgp1c/sddefault.webp?v=6077d43e&sqp=CPCG04YG&rs=AOn4CLCkh44dNY0WeD9HIZa4objok6NpTw"></img>
+                                </a>
+                                <h3 style="color:black;">Creating a Bullet Hell Framework In Godot</h3>
+                            </div></td>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+
+                <div class="padding-divider"></div>
+
             <!-- Socials and Contact -->
-            <h1 class="center"><a id="nav-socials"></a>Socials & Contact</h1>
+            <a class="anchor" id="nav-socials"></a>
+            <h1 class="center" data-aos="zoom-out">Socials & Contact</h1>
             <table class="center">
                 <tr>
-                    <td><a href="https://skyansam.itch.io/"></a><img class="social-icon make-white" src="icons/itch.png"></img></a></td>
-                    <td><a href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA"><img class="social-icon make-white" src="icons/youtube.png"></img></a></td>
-                    <td><a href="discord.gg/w58Xf8C3Jc"><img class="social-icon make-white" src="icons/discord.png"></img></a></td>
+                    <td data-aos="fade-left"><a href="https://skyansam.itch.io/" target="_blank"><img class="social-icon make-white" src="icons/itch.png"></img></a></td>
+                    <td data-aos="zoom-in"><a href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank"><img class="social-icon make-white" src="icons/youtube.svg"></img></a></td>
+                    <td data-aos="fade-right"><a href="https://discord.gg/w58Xf8C3Jc" target="_blank"><img class="social-icon make-white" src="icons/discord.png"></img></a></td>
                 </tr>
                 <tr>
-                    <td><a href="github.com/skyansam"><img class="social-icon make-white" src="icons/github.png"></img></a></td>
-                    <td><a href="twitter.com/skyansam"><img class="social-icon make-white" src="icons/twitter.png"></img></a></td>
-                    <td><a href="mailto: skyriftstudios@gmail.com"><img class="social-icon make-white" src="icons/Gmail.png"></img></a></td>
+                    <td data-aos="fade-right"><a href="https://github.com/skyansam" target="_blank"><img class="social-icon make-white" src="icons/github.svg"></img></a></td>
+                    <td data-aos="zoom-out"><a href="https://twitter.com/skyansam" target="_blank"><img class="social-icon make-white" src="icons/twitter.png"></img></a></td>
+                    <td data-aos="fade-left"><a href="mailto: skyriftstudios@gmail.com" target="_blank"><img class="social-icon make-white" src="icons/Gmail.png"></img></a></td>
                 </tr>
             </table>
         </div>

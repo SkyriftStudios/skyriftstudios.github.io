@@ -8,6 +8,9 @@ html,body {
 html {
     scroll-behavior: smooth;
 }
+h1 {
+    font-size:50px;
+}
 #main-panel {
     width:75%;
     background-color:#4d4d4d;
@@ -27,13 +30,27 @@ body {
     width:50%;
     text-align: center;
 }
+.center2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+.center3 {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width:60%;
+    text-align: center;
+}
 .app-image {
-    width:50px;
+    width:75px;
     
 }
 .app-image:hover {
-    width:50px;
     transform: scale(1.5);
+}
+.padding-divider {
+    padding-top: 200px;
+    padding-bottom: 200px;
 }
 .project-bg {
     background-color: white;
@@ -43,14 +60,11 @@ body {
     margin: 20px;
 }
 .project-bg:hover {
-    animation-name:project-bg-hover;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
     margin: 20px;
 }
 .social-icon {
     width:200px;
+    height:auto;
     margin:20px;
 }
 .banner {
@@ -82,8 +96,54 @@ background-color:#4d4d4d;
 text-decoration:none;
 }
 
+.project-button
+{
+margin:2px;
+padding:3px;
+font-weight:400;
+border:0px solid white;
+border-radius:3px;
+color:white;
+text-decoration:none;
+white-space:nowrap;
+line-height:28px;
+background-color:#2d2d2d;
+}
+.project-button:hover
+{
+background-color:white;
+color:#2d2d2d;
+text-decoration:none;
+}
+
 
 .autoWidth {
     width:auto;
 }
 
+.about-text {
+    font-size:75px;
+}
+.about-text-2 {
+    font-size:50px;
+}
+
+#navbar {
+    position: fixed;
+    top: 0px;
+    width: 75%;
+    z-index:100;
+}
+
+.anchor {
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
