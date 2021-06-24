@@ -1,0 +1,43 @@
+@font-face {
+	font-family: 'NunitoSans';
+	src: url('fonts/NunitoSans.ttf'); 
+	src: 
+		local('NunitoSans'),
+		local('Lovely-Font'),
+		url('fonts/NunitoSans.ttf') 
+		format('truetype');
+}
+@font-face {
+	font-family: 'Abel';
+	src: url('fonts/Abel-Regular.ttf'); 
+	src: 
+		local('Abel'),
+		local('Lovely-Font'),
+		url('fonts/Abel-Regular.ttf') 
+		format('truetype');
+}
+body {
+    font-family: NunitoSans, sans-serif;
+    color:white;
+}
+.font-NunitoSans {
+    font-family: NunitoSans, sans-serif;
+}
+.font-Abel {
+    font-family: Abel, sans-serif;
+}
+.font-medium {
+    font-size: 30px;
+}
+h1 {
+    font-family: Abel, sans-serif;
+}
+h3 {
+    font-family: NunitoSans, sans-serif;
+}
+.make-white {
+    filter: brightness(100%), saturate(100%), contrast(0%),
+}
+.make-black {
+    filter: brightness(0%), saturate(100%), contrast(0%),
+}

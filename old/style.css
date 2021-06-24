@@ -1,0 +1,123 @@
+@font-face {
+	font-family: 'NunitoSans';
+	src: url('NunitoSans.ttf'); 
+	src: 
+		local('NunitoSans'),
+		local('Lovely-Font'),
+		url('NunitoSans.ttf') 
+		format('truetype');
+}
+
+.navbar {
+	width:100%;
+	background-color: #D1D1D1;
+	background-image: linear-gradient(#D1D1D1, #747474);
+}
+
+body {
+	background:url(clouds-bg.png);
+	background-size: auto;
+    background-color: darkgray;
+    font-family: NunitoSans, sans-serif;
+	color:white;
+}
+
+
+.center {
+    display: block;
+    margin-left:auto;
+	margin-right:auto;
+	width:50%;
+}
+.header {
+background-color:#0167FE;
+font-family:sans-serif;
+width:50;
+height:50%;
+border:1px solid #FFFFFF;
+}
+.banner {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+}
+.heading {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    border:0px;
+    width:100%;
+    height:250px;
+}
+.content {
+    background-color:rgba(0,153,255,0.25);
+    border:1px solid #FFFFFF;
+    margin-left:auto;
+    margin-right:auto;
+    width:50% - 5px;
+    margin:5px auto 0px auto;
+	padding:5px;
+	border-radius:3px;
+}
+.img {
+    display:block;
+    width:100px;
+    height:auto;
+}
+.button
+{
+margin:2px;
+padding:3px;
+font-weight:400;
+border:0px solid white;
+border-radius:3px;
+color:white;
+text-decoration:none;
+font-family:NunitoSans, sans-serif;
+white-space:nowrap;
+line-height:28px;
+background-color:#0167FE;
+}
+.button:hover
+{
+background-color:rgba(255,255,255,0.25);
+text-decoration:none;
+}
+
+.button2 {
+	margin:2px;
+	padding:3px;
+	font-weight:400;
+	border:0px solid white;
+	border-radius:3px;
+	color:white;
+	text-decoration:none;
+	white-space:nowrap;
+	line-height:28px;
+}
+.button2:hover {
+	background-color:darkgray;
+	color: lightgray;
+}
+
+.mainbutton {
+	margin:2px;
+	padding:3px;
+	font-weight:400;
+	border:0px;
+	border-radius:2px;
+	color:white;
+	text-decoration:none;
+	white-space:nowrap;
+	line-height:28px;
+}
+.mainbutton:hover {
+	background-color:white;
+	color: black;
+}
+#buttons
+{
+line-height:30px;
+margin:0px;
+}

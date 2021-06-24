@@ -5,23 +5,104 @@
         <title>Skyrift Studios</title>
     </head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font.css">
+    <link " rel="stylesheet" href="keyframes.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <body>
-        <div class="center header">
-            <img class="banner" src="newbanner-main.png">
-            <p id="buttons">
-                <a class="button" href="index.html">Home</a>
-                <a class="button" href="projects.html">Projects</a>        
-                <a class="button" href="about.html">About</a>
-                <a class="button" href="links.html">Links</a>
-            </p>
+        <div id="main-panel">  
+            <!-- Header -->
+            <div class="">
+                <img class="banner" src="skyriftstudiosbanner.png"></img>
+                <div class="navbar">
+                    <p id="buttons" class="center">
+                        <a class="navbar-button" href="index.html">Home</a>
+                        <a href="#nav-games" class="navbar-button" >Games</a>        
+                        <a class="navbar-button" href="about.html">About</a>
+                        <a class="navbar-button" href="links.html">Links</a>
+                    </p>
+                </div>
+            </div>
+            <!-- Introduction -->
+            <div>
+                <p class="center font-Abel font-medium">Hello, <br> I'm SkyanSam.</p>
+            </div>
+            <div>
+                <p class="center font-Abel font-medium">I use tools such as</p>
+                <table class="center">
+                    <tr class="center">
+                        <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/csharp.svg"></img></td>
+                        <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/unity.png"></img></td>
+                        <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/java.svg"></img></td>
+                        <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/kotlin.png"></img></td>
+                        <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/javascript.png"></img></td>
+                        <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/python.png"></img></td>
+                        <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/pygame.png"></img></td>
+                        <td><img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/Godot.png"></img></td>
+                    </tr>
+                </table>
+                <p id="display-tool" class="center font-Abel font-medium">_</p>
+            </div>
+
+            <!-- Games -->
+            <div>
+                <h1 class="center"><a id="nav-games"></a>Games</h1>
+                <table class="center">
+                    <tr>
+                        <td><div class="project-bg">
+                                <a href="https://skyansam.itch.io/break-it-down">
+                                    <img style="padding-top:10%" src="https://img.itch.zone/aW1nLzYyODc0MDMucG5n/315x250%23c/l0RCRa.png"></img>
+                                </a>
+                                <h3 style="color:black;">Break It Down</h3>
+                            </div></td>
+                        <td><div class="project-bg">
+                            <a href="https://skyansam.itch.io/corruption">
+                                <img style="padding-top:10%" src="https://img.itch.zone/aW1nLzQ2NzI4NTQucG5n/315x250%23c/dslOPU.png"></img>
+                            </a>
+                            <h3 style="color:black;">Corrupter of the Souls</h3>
+                        </div></td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Socials and Contact -->
+            <h1 class="center"><a id="nav-socials"></a>Socials & Contact</h1>
+            <table class="center">
+                <tr>
+                    <td><a href="https://skyansam.itch.io/"></a><img class="social-icon make-white" src="icons/itch.png"></img></a></td>
+                    <td><a href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA"><img class="social-icon make-white" src="icons/youtube.png"></img></a></td>
+                    <td><a href="discord.gg/w58Xf8C3Jc"><img class="social-icon make-white" src="icons/discord.png"></img></a></td>
+                </tr>
+                <tr>
+                    <td><a href="github.com/skyansam"><img class="social-icon make-white" src="icons/github.png"></img></a></td>
+                    <td><a href="twitter.com/skyansam"><img class="social-icon make-white" src="icons/twitter.png"></img></a></td>
+                    <td><a href="mailto: skyriftstudios@gmail.com"><img class="social-icon make-white" src="icons/Gmail.png"></img></a></td>
+                </tr>
+            </table>
         </div>
-
-        <div class="center content">
-<p>
-    Skyrift Studios is a media organization founded by Skyan Samuel that creates applications, games, videos & films, as well as other projects.</p>
-
-        </div>
-        
-
     </body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        function displayTool(x) {
+            let displayText = "";
+            let path = window.location.hostname +  "/icons/";
+            console.log(path);
+            let srcSplit = x.src.split('/');
+            let src = srcSplit[srcSplit.length - 1];
+            if (src == "csharp.svg") { displayText = "C#"}
+            else if (src == "unity.png") { displayText = "Unity Game Engine"}
+            else if (src == "java.svg") { displayText = "Java"}
+            else if (src == "kotlin.png") { displayText = "Kotlin"}
+            else if (src == "python.png") { displayText = "Python"}
+            else if (src == "javascript.png") { displayText = "Javascript"}
+            else if (src == "pygame.png") { displayText = "Pygame"}
+            else if (src == "Godot.png") { displayText = "Godot"}
+            document.getElementById("display-tool").textContent = displayText;
+        }
+        function resetDisplayTool() {
+            document.getElementById("display-tool").textContent = "‎‏‏‎ ‎";
+        }
+        resetDisplayTool();
+    </script>
 </html>
