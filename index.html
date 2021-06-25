@@ -14,8 +14,8 @@
             <!-- Header -->
             <div id="navbar">
                
-                <img class="banner" src="skyriftstudiosbanner.png"></img>
-                <div class="navbar">
+                <img class="banner" style="object-fit: cover;" src="skyriftstudiosbanner.png"></img>
+                <div class="navbar" >
                     <p id="buttons" class="center">
                         <a class="navbar-button" href="index.html">Home</a>
                         <a href="index.html#nav-about" class="navbar-button">About</a>
@@ -67,23 +67,39 @@
             <!-- Projects -->
             <div>
                 <a class="anchor" id="nav-projects"></a>
-                <h1 class="center">Projects</h1>
-                <h2 class="center rotate-on-hover"><a href="all-projects.html" style="color:cyan;"><i>(projects listed by programming language)</i></a></h2>
-                <div class="center" style="margin-right:600px;">
-                <table>
+                <h1 class="center" data-aos="zoom-in">Projects</h1>
+                <h2 class="center rotate-on-hover" data-aos="flip-down"><a href="all-projects.html" style="color:cyan;"><i>(more projects)</i></a></h2>
+                <div class="center" style="display:flex;justify-content: space-evenly;
+                align-items:center;" >
+                <table class="">
                     <tr>
-                        <td><div class="project-bg">
+                        <td><div class="project-bg" data-aos="fade-down-right">
                                 <a href="https://skyansam.itch.io/break-it-down" target="_blank">
                                     <img class="project-img" src="https://img.itch.zone/aW1nLzYyODc0MDMucG5n/315x250%23c/l0RCRa.png"></img>
                                 </a>
                                 <h3 style="color:black;">Break It Down</h3>
-                            </div></td>
-                        <td><div class="project-bg">
+                        </div></td>
+                        <td><div class="project-bg" data-aos="fade-down-left">
                             <a href="https://skyansam.itch.io/corruption" target="_blank">
                                 <img class="project-img" src="https://img.itch.zone/aW1nLzQ2NzI4NTQucG5n/315x250%23c/dslOPU.png"></img>
                             </a>
                             <h3 style="color:black;">Corrupter of the Souls</h3>
                         </div></td>
+                    </tr>
+                    <tr>
+                            <td><div class="project-bg" data-aos="fade-up-right">
+                                    <a href="https://github.com/SkyanSam/SVGToPAPrefab" target="_blank">
+                                        <img class="project-img" style="width:150px;" src="icons/project_arrhythmia_logo.png"></img>
+                                    </a>
+                                    <h3 style="color:black;">Project Arrythmia Addons</h3>
+                            </div></td>
+                            <td><div class="project-bg" data-aos="fade-up-left">
+                                <a href="https://skyansam.itch.io/rhythm-review" target="_blank">
+                                    <img class="project-img" src="icons/rhythmreview.png"></img>
+                                </a>
+                                
+                                <h3 style="color:black;">Rhythm Review</h3>
+                            </div></td>
                     </tr>
                 </table>
                 </div>
@@ -95,24 +111,25 @@
             <div>
                     <a class="anchor" id="nav-tutorials"></a>
                     <h1 class="center" data-aos="zoom-in">Tutorials</h1>
-                    <div class="center" style="margin-right:600px;">
+                    <div class="center" style="display:flex;justify-content: space-evenly;
+                align-items:center;" >
                     <table>
                         <tr>
                             <td data-aos="fade-left"><div class="project-bg" >
                                 <a href="https://www.youtube.com/watch?v=o97i5ig3rVs&list=PL_6NqQ-xFCvWnAtPbrUPOcweFHsIMBXKo" target="_blank">
-                                    <img class="project-img" src="https://i9.ytimg.com/vi/bTfN6FBibCM/maxresdefault.jpg?time=1624555800000&sqp=CJiC04YG&rs=AOn4CLCrm340agl1VejPbbmENQrrWBdZ8g"></img>
+                                    <img class="project-img" src="icons/googledocstut.jpg"></img>
                                 </a>
                                 <h3 style="color:black;">Creating a Google Docs Addon From Scratch</h3>
                             </div></td>
                             <td data-aos="zoom-in"><div class="project-bg">
                                 <a href="https://www.youtube.com/playlist?list=PL_6NqQ-xFCvV8-4vGaKuxjZZyHL2_3BHi" target="_blank">
-                                    <img class="project-img" src="https://i9.ytimg.com/vi/UZWEkpWgs-4/maxresdefault.jpg?time=1624556100000&sqp=CMSE04YG&rs=AOn4CLAL2_mu5VySB0dwqhYCtW-ghBqbAw"></img>
+                                    <img class="project-img" src="icons/bullethelltutthumb1.png"></img>
                                 </a>
                                 <h3 style="color:black;">Creating a Bullet Hell Framework In Unity</h3>
                             </div></td>
                             <td data-aos="fade-right"><div class="project-bg">
                                 <a href="https://youtu.be/AnQCs_qgp1c" target="_blank">
-                                    <img class="project-img" src="https://i9.ytimg.com/vi_webp/AnQCs_qgp1c/sddefault.webp?v=6077d43e&sqp=CPCG04YG&rs=AOn4CLCkh44dNY0WeD9HIZa4objok6NpTw"></img>
+                                    <img class="project-img" src="icons/bullethellgodot.webp"></img>
                                 </a>
                                 <h3 style="color:black;">Creating a Bullet Hell Framework In Godot</h3>
                             </div></td>
