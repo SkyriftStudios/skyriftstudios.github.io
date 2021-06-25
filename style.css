@@ -59,13 +59,20 @@ body {
     height:350px;
     margin: 20px;
 }
+.project-img {
+    padding-top:10%; 
+    width:300px;
+}
 .project-bg:hover {
     margin: 20px;
 }
 .social-icon {
+    /*
     width:200px;
-    height:auto;
-    margin:20px;
+    margin:20px;*/
+    margin-left: 2vw;
+    margin-right: 2vw;
+    width: 10vw;
 }
 .banner {
     width:100%;
@@ -147,3 +154,9 @@ ul {
     margin: 0;
     padding: 0;
   }
+.row {
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    align-items:center;
+}
