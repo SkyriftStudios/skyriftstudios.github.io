@@ -1,185 +1,800 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-        <title>Skyrift Studios</title>
-    </head>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="font.css">
-    <link rel="stylesheet" href="keyframes.css">
-    <link rel="stylesheet" href="tables.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <body>
-        <div id="main-panel">  
-            <!-- Header -->
-            <div id="navbar">
-               
-                <img class="banner" style="object-fit: cover;" src="skyriftstudiosbanner.png"></img>
-                <div class="navbar" >
-                    <p id="buttons" class="center">
-                        <a class="navbar-button" href="index.html">Home</a>
-                        <a href="index.html#nav-about" class="navbar-button">About</a>
-                        <a href="index.html#nav-projects" class="navbar-button">Projects</a>     
-                        <a href="index.html#nav-tutorials" class="navbar-button">Tutorials</a>     
-                        <a class="navbar-button" href="index.html#nav-socials">Socials</a>
-                    </p>
-                </div>
-                
-            </div>
-            <!-- Introduction -->
-            
-            <div class="padding-divider"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skyrift Studios — SkyanSam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
 
-            <div>
-                <a class="anchor" id="nav-about"></a>
-                <p style="padding-top:100px;" class="center font-Abel about-text" data-aos="fade-right">Hello,</p>
-                <p class="center font-Abel about-text" data-aos="fade-left">I'm SkyanSam.</p>
-            </div>
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  background: #c8dff0;
+  color: #1a1a2e;
+}
 
-            <div class="padding-divider"></div>
+/* ── HEADER ── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  background: #c8dff0;
+  border-bottom: 1px solid rgba(26,26,46,0.12);
+}
+.site-brand { display: flex; align-items: center; gap: 14px; }
+.site-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px; font-weight: 900;
+  letter-spacing: 0.01em;
+  color: #1a1a2e; text-decoration: none; cursor: pointer;
+}
+.site-divider-v { width: 1px; height: 18px; background: rgba(26,26,46,0.2); }
+.site-tagline {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 300;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(26,26,46,0.45);
+}
+.site-header-nav { display: flex; align-items: center; gap: 4px; }
+.site-header-nav a {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(26,26,46,0.5); text-decoration: none; cursor: pointer;
+  padding: 5px 10px; border-radius: 2px;
+  transition: color 0.18s, background 0.18s;
+}
+.site-header-nav a:hover { color: #1a1a2e; background: rgba(26,26,46,0.07); }
+.site-header-nav a.nav-active { color: #1a1a2e; background: rgba(26,26,46,0.1); }
 
-            <div>
-                <p class="center3 font-Abel about-text-2" data-aos="zoom-out">I'm a young game developer, content creator,
-                <p class="center3 font-Abel about-text-2" data-aos="flip-down">and an aspiring software developer.</p>
-            </div>
+/* ── SPLIT CONTAINER ── */
+.split-container {
+  position: fixed;
+  top: 58px; bottom: 44px;
+  left: 0; right: 0;
+  display: flex;
+}
+.left-side {
+  width: 400px; flex-shrink: 0;
+  position: relative; overflow: hidden;
+  background: #c8dff0;
+}
+.split-divider { width: 1px; background: rgba(26,26,46,0.12); flex-shrink: 0; }
+.canvas-side { flex: 1; position: relative; overflow: hidden; background: #daeaf7; }
 
-            <div class="padding-divider"></div>
+/* ── PANELS ── */
+.panel {
+  position: absolute; inset: 0;
+  overflow-y: auto;
+  opacity: 0; pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+.panel.panel-active { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
-            <div>
-                <p class="center font-Abel about-text" data-aos="zoom-out">I use tools such as</p>
-                <div class="row center" data-aos="fade-in">
-                        <img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/csharp.svg"></img>
-                        <img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/unity.png"></img>
-                        <img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/java.svg"></img>
-                        <img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/kotlin.png"></img>  
-                </div>
-                <div class="row center" data-aos="fade-in">
-                        <img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/javascript.png"></img>
-                        <img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/python.png"></img>
-                        <img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/pygame.png"></img>
-                        <img class="app-image" onmouseover="displayTool(this)" onmouseout="resetDisplayTool()" src="icons/Godot.png"></img>
-                </div>
-                <p id="display-tool" class="center font-Abel font-medium">_</p>
-            </div>
-            
-            <div class="padding-divider"></div>
+.panel-header {
+  padding: 22px 28px 14px;
+  border-bottom: 1px solid rgba(26,26,46,0.1);
+}
+.panel-header span {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4);
+}
+.panel-footer {
+  padding: 14px 28px;
+  border-top: 1px solid rgba(26,26,46,0.1);
+  display: flex; justify-content: space-between;
+}
+.panel-footer span {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(26,26,46,0.35);
+}
 
-            <!-- Projects -->
-            <div>
-                <a class="anchor" id="nav-projects"></a>
-                <h1 class="center" data-aos="zoom-in">Projects</h1>
-                <h2 class="center rotate-on-hover" data-aos="flip-down"><a href="all-projects.html" style="color:cyan;"><i>(more projects)</i></a></h2>
-                <div class="center" style="display:flex;justify-content: space-evenly;
-                align-items:center;" >
-                <table class="">
-                    <tr>
-                        <td><div class="project-bg" data-aos="fade-down-right">
-                                <a href="https://skyansam.itch.io/break-it-down" target="_blank">
-                                    <img class="project-img" src="https://img.itch.zone/aW1nLzYyODc0MDMucG5n/315x250%23c/l0RCRa.png"></img>
-                                </a>
-                                <h3 style="color:black;">Break It Down</h3>
-                        </div></td>
-                        <td><div class="project-bg" data-aos="fade-down-left">
-                            <a href="https://skyansam.itch.io/corruption" target="_blank">
-                                <img class="project-img" src="https://img.itch.zone/aW1nLzQ2NzI4NTQucG5n/315x250%23c/dslOPU.png"></img>
-                            </a>
-                            <h3 style="color:black;">Corrupter of the Souls</h3>
-                        </div></td>
-                    </tr>
-                    <tr>
-                            <td><div class="project-bg" data-aos="fade-up-right">
-                                    <a href="https://github.com/SkyanSam/SVGToPAPrefab" target="_blank">
-                                        <img class="project-img" style="width:150px;" src="icons/project_arrhythmia_logo.png"></img>
-                                    </a>
-                                    <h3 style="color:black;">Project Arrythmia Addons</h3>
-                            </div></td>
-                            <td><div class="project-bg" data-aos="fade-up-left">
-                                <a href="https://skyansam.itch.io/rhythm-review" target="_blank">
-                                    <img class="project-img" src="icons/rhythmreview.png"></img>
-                                </a>
-                                
-                                <h3 style="color:black;">Rhythm Review</h3>
-                            </div></td>
-                    </tr>
-                </table>
-                </div>
-            </div>
+/* ── LIST ── */
+.project-list { list-style: none; }
+.project-item { border-bottom: 1px solid rgba(26,26,46,0.08); }
+.project-link {
+  display: grid;
+  grid-template-columns: 32px 1fr 18px auto;
+  align-items: center;
+  gap: 0 12px;
+  padding: 15px 28px;
+  text-decoration: none; color: #1a1a2e; cursor: pointer;
+  transition: background 0.16s;
+}
+.project-link:hover,
+.project-item.is-active .project-link { background: rgba(26,26,46,0.05); }
 
-            <div class="padding-divider"></div>
+.project-number {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 300;
+  color: rgba(26,26,46,0.35); letter-spacing: 0.06em;
+}
+.project-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px; font-weight: 700;
+  letter-spacing: 0.01em; transition: color 0.16s;
+}
+.project-link:hover .project-title,
+.project-item.is-active .project-title { color: #2b4a6f; }
 
-            <!-- Tutorials -->
-            <div>
-                    <a class="anchor" id="nav-tutorials"></a>
-                    <h1 class="center" data-aos="zoom-in">Tutorials</h1>
-                    <div class="center" style="display:flex;justify-content: space-evenly;
-                align-items:center;" >
-                    <table>
-                        <tr>
-                            <td data-aos="fade-left"><div class="project-bg" >
-                                <a href="https://www.youtube.com/watch?v=o97i5ig3rVs&list=PL_6NqQ-xFCvWnAtPbrUPOcweFHsIMBXKo" target="_blank">
-                                    <img class="project-img" src="icons/googledocstut.jpg"></img>
-                                </a>
-                                <h3 style="color:black;">Creating a Google Docs Addon From Scratch</h3>
-                            </div></td>
-                            <td data-aos="zoom-in"><div class="project-bg">
-                                <a href="https://www.youtube.com/playlist?list=PL_6NqQ-xFCvV8-4vGaKuxjZZyHL2_3BHi" target="_blank">
-                                    <img class="project-img" src="icons/bullethelltutthumb1.png"></img>
-                                </a>
-                                <h3 style="color:black;">Creating a Bullet Hell Framework In Unity</h3>
-                            </div></td>
-                            <td data-aos="fade-right"><div class="project-bg">
-                                <a href="https://youtu.be/AnQCs_qgp1c" target="_blank">
-                                    <img class="project-img" src="icons/bullethellgodot.webp"></img>
-                                </a>
-                                <h3 style="color:black;">Creating a Bullet Hell Framework In Godot</h3>
-                            </div></td>
-                        </tr>
-                    </table>
-                    </div>
-                </div>
+.project-arrow svg {
+  width: 14px; height: 14px;
+  stroke: rgba(26,26,46,0.25); fill: none; stroke-width: 1.5;
+  transition: transform 0.16s, stroke 0.16s;
+}
+.project-link:hover .project-arrow svg,
+.project-item.is-active .project-arrow svg { transform: translateX(2px); stroke: #2b4a6f; }
 
-                <div class="padding-divider"></div>
+.project-category {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4); text-align: right; white-space: nowrap;
+}
 
-            <!-- Socials and Contact -->
-            <a class="anchor" id="nav-socials"></a>
-            <h1 class="center" data-aos="zoom-out">Socials & Contact</h1>
-            <div class="row center">
-                    <div data-aos="fade-left"><a href="https://skyansam.itch.io/" target="_blank"><img class="social-icon make-white" src="icons/itch.png"></img></a></div>
-                    <div data-aos="zoom-in"><a href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank"><img class="social-icon make-white" src="icons/youtube.svg"></img></a></div>
-                    <div data-aos="fade-right"><a href="https://discord.gg/w58Xf8C3Jc" target="_blank"><img class="social-icon make-white" src="icons/discord.png"></img></a></div>
-            </div>
-            <div class="row center">
-                    <div data-aos="fade-right"><a href="https://github.com/skyansam" target="_blank"><img class="social-icon make-white" src="icons/github.svg"></img></a></div>
-                    <div data-aos="zoom-out"><a href="" target="_blank"><img class="social-icon make-white" src="icons/twitter.png"></img></a></div>
-                    <div data-aos="fade-left"><a href="mailto: skyriftstudios@gmail.com" target="_blank"><img class="social-icon make-white" src="icons/Gmail.png"></img></a></div>
-            </div>
-            <div style="padding-bottom:150px;"></div>
+.list-section-label {
+  padding: 14px 28px 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(26,26,46,0.35);
+  background: rgba(26,26,46,0.025);
+  border-bottom: 1px solid rgba(26,26,46,0.07);
+}
+
+/* ── ABOUT ── */
+.about-content { padding: 30px 28px 24px; }
+.about-label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4); margin-bottom: 16px;
+}
+.about-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 900;
+  line-height: 1.3; margin-bottom: 18px; color: #1a1a2e;
+}
+.about-headline em { font-style: italic; color: #2b4a6f; }
+.about-body {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px; line-height: 1.75;
+  color: rgba(26,26,46,0.65); margin-bottom: 26px;
+}
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(26,26,46,0.1); margin-bottom: 26px;
+}
+.stat-item { padding: 16px 14px; border-right: 1px solid rgba(26,26,46,0.1); }
+.stat-item:last-child { border-right: none; }
+.stat-number {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 900; color: #1a1a2e; margin-bottom: 4px;
+}
+.stat-label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4);
+}
+.tools-row { margin-top: 4px; }
+.tools-label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4); margin-bottom: 10px;
+}
+.tools-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.tool-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 9px; border: 1px solid rgba(26,26,46,0.18);
+  color: rgba(26,26,46,0.55); border-radius: 1px;
+}
+
+/* ── CONTACT ── */
+.contact-content { padding: 30px 28px 24px; }
+.contact-label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4); margin-bottom: 16px;
+}
+.contact-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 900;
+  margin-bottom: 24px; color: #1a1a2e;
+}
+.contact-form { display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4);
+}
+.form-group input,
+.form-group textarea {
+  background: rgba(26,26,46,0.05);
+  border: 1px solid rgba(26,26,46,0.12);
+  color: #1a1a2e;
+  font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+  padding: 9px 12px; outline: none; resize: none; border-radius: 1px;
+  transition: border-color 0.18s;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: rgba(26,26,46,0.28); }
+.form-group input:focus,
+.form-group textarea:focus { border-color: rgba(26,26,46,0.35); background: rgba(26,26,46,0.07); }
+.form-group textarea { height: 86px; }
+.form-submit {
+  background: #1a1a2e; color: #c8dff0; border: none;
+  font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 12px 20px; cursor: pointer;
+  transition: opacity 0.18s; border-radius: 1px;
+}
+.form-submit:hover { opacity: 0.82; }
+.contact-details {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 8px 16px; align-items: center;
+}
+.contact-details span {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(26,26,46,0.35);
+}
+.contact-details a { font-size: 13px; color: rgba(26,26,46,0.7); text-decoration: none; transition: color 0.16s; }
+.contact-details a:hover { color: #1a1a2e; }
+
+/* ── CANVAS PLACEHOLDER ── */
+.canvas-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 14px; transition: opacity 0.22s;
+}
+.canvas-placeholder.hidden { opacity: 0; pointer-events: none; }
+.placeholder-icon svg { width: 36px; height: 36px; stroke: rgba(26,26,46,0.15); fill: none; stroke-width: 1; }
+.placeholder-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(26,26,46,0.25);
+}
+
+/* ── CANVAS SLIDES ── */
+.canvas-image {
+  position: absolute; inset: 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.32s ease;
+  display: flex; align-items: center; justify-content: center;
+  background: #daeaf7;
+}
+.canvas-image.visible { opacity: 1; pointer-events: auto; }
+
+.preview-card {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 16px;
+  padding: 48px 40px; max-width: 420px; text-align: center;
+}
+.preview-emoji { font-size: 52px; line-height: 1; }
+.preview-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 900; color: #1a1a2e; line-height: 1.2;
+}
+.preview-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4);
+}
+.preview-desc {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px; line-height: 1.75; color: rgba(26,26,46,0.6);
+}
+.preview-link {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: #1a1a2e; text-decoration: none;
+  border-bottom: 1px solid rgba(26,26,46,0.35);
+  padding-bottom: 2px; margin-top: 4px;
+  transition: border-color 0.16s, color 0.16s;
+}
+.preview-link:hover { color: #2b4a6f; border-color: #2b4a6f; }
+
+.canvas-caption {
+  position: absolute; bottom: 22px; left: 22px;
+  padding: 11px 14px;
+  background: rgba(200,223,240,0.88);
+  border-left: 2px solid rgba(26,26,46,0.2);
+}
+.canvas-caption-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px; font-weight: 700; color: #1a1a2e;
+}
+.canvas-caption-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.1em; color: rgba(26,26,46,0.45); margin-top: 3px;
+}
+
+/* ── CANVAS CONTEXT (About / Contact) ── */
+.canvas-context {
+  position: absolute; inset: 0;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.32s ease;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 14px; padding: 48px; text-align: center;
+  background: #daeaf7;
+}
+.canvas-context.visible { opacity: 1; pointer-events: auto; }
+.canvas-context-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700; font-style: italic;
+  color: #1a1a2e; max-width: 380px; line-height: 1.5;
+}
+.canvas-context-attr {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(26,26,46,0.4);
+}
+.context-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+.context-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(26,26,46,0.55); text-decoration: none;
+  border: 1px solid rgba(26,26,46,0.18);
+  padding: 7px 14px; border-radius: 1px;
+  transition: color 0.16s, border-color 0.16s, background 0.16s;
+}
+.context-link:hover { color: #1a1a2e; border-color: rgba(26,26,46,0.4); background: rgba(26,26,46,0.05); }
+
+/* ── FOOTER ── */
+.site-footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: 44px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+  background: #c8dff0; border-top: 1px solid rgba(26,26,46,0.12);
+}
+.site-footer > span {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.1em; color: rgba(26,26,46,0.35);
+}
+.footer-links { display: flex; align-items: center; gap: 10px; }
+.footer-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; font-weight: 300;
+  letter-spacing: 0.1em; color: rgba(26,26,46,0.4);
+  text-decoration: none; transition: color 0.16s;
+}
+.footer-links a:hover { color: #1a1a2e; }
+.footer-dot { color: rgba(26,26,46,0.18); font-size: 10px; }
+
+/* ── SCROLLBAR ── */
+.panel::-webkit-scrollbar { width: 3px; }
+.panel::-webkit-scrollbar-track { background: transparent; }
+.panel::-webkit-scrollbar-thumb { background: rgba(26,26,46,0.15); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-brand">
+    <a class="site-title" data-nav="games">Skyrift Studios</a>
+    <div class="site-divider-v"></div>
+    <span class="site-tagline">SkyanSam · Game Dev &amp; Content</span>
+  </div>
+  <nav class="site-header-nav">
+    <a data-nav="games" class="nav-active">Games</a>
+    <a data-nav="tutorials">Tutorials</a>
+    <a data-nav="jams">Jams</a>
+    <a data-nav="about">About</a>
+    <a data-nav="contact">Contact</a>
+  </nav>
+</header>
+
+<div class="split-container">
+  <div class="left-side">
+
+    <!-- GAMES -->
+    <div class="panel panel-active" id="panel-games">
+      <div class="panel-header"><span>Featured Games — itch.io</span></div>
+      <ul class="project-list" id="gameList">
+        <li class="list-section-label">Rhythm &amp; Music</li>
+        <li class="project-item" data-index="0">
+          <a href="https://skyansam.itch.io/bzbz" target="_blank" class="project-link">
+            <span class="project-number">01</span>
+            <span class="project-title">BezierBeatz</span>
+            <span class="project-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="project-category">Rhythm / Bullet Hell</span>
+          </a>
+        </li>
+        <li class="project-item" data-index="1">
+          <a href="https://skyansam.itch.io/break-it-down" target="_blank" class="project-link">
+            <span class="project-number">03</span>
+            <span class="project-title">Break It Down</span>
+            <span class="project-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="project-category">Casual</span>
+          </a>
+        </li>
+      </ul>
+      <div class="panel-footer">
+        <span>15+ games on itch.io</span>
+        <span>Hover to Preview</span>
+      </div>
+    </div>
+
+    <!-- TUTORIALS -->
+    <div class="panel" id="panel-tutorials">
+      <div class="panel-header"><span>Tutorials — YouTube</span></div>
+      <ul class="project-list" id="tutorialList">
+        <li class="list-section-label">Game Dev Series</li>
+        <li class="project-item" data-index="5">
+          <a href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank" class="project-link">
+            <span class="project-number">01</span>
+            <span class="project-title">Rhythm Game Tutorial</span>
+            <span class="project-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="project-category">Unity</span>
+          </a>
+        </li>
+        <li class="project-item" data-index="6">
+          <a href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank" class="project-link">
+            <span class="project-number">02</span>
+            <span class="project-title">Bullet Hell Tutorial</span>
+            <span class="project-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="project-category">Unity / Godot</span>
+          </a>
+        </li>
+        <li class="list-section-label">Web &amp; Tools</li>
+        <li class="project-item" data-index="7">
+          <a href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank" class="project-link">
+            <span class="project-number">03</span>
+            <span class="project-title">Google Docs Addon</span>
+            <span class="project-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="project-category">JavaScript</span>
+          </a>
+        </li>
+      </ul>
+      <div class="panel-footer">
+        <span>YouTube Channel</span>
+        <span>Hover to Preview</span>
+      </div>
+    </div>
+
+    <!-- JAMS -->
+    <div class="panel" id="panel-jams">
+      <div class="panel-header"><span>Hosted Game Jams — itch.io</span></div>
+      <ul class="project-list" id="jamList">
+        <li class="project-item" data-index="8">
+          <a href="https://itch.io/jam/bullet-jam-2021" target="_blank" class="project-link">
+            <span class="project-number">01</span>
+            <span class="project-title">🎆 Bullet Hell Jam</span>
+            <span class="project-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="project-category">2021</span>
+          </a>
+        </li>
+        <li class="project-item" data-index="9">
+          <a href="https://itch.io/jam/rhythm-jam-2021" target="_blank" class="project-link">
+            <span class="project-number">02</span>
+            <span class="project-title">🎶 Rhythm Jam</span>
+            <span class="project-arrow"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="project-category">2021</span>
+          </a>
+        </li>
+      </ul>
+      <div class="panel-footer">
+        <span>Co-hosted w/ Harman Kamboj</span>
+        <span>Hover to Preview</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="panel" id="panel-about">
+      <div class="about-content">
+        <span class="about-label">About the Studio</span>
+        <h2 class="about-headline">Hi,<br><em>I'm SkyanSam!</em></h2>
+        <p class="about-body">
+          I am an indie game developer, content creator, and aspiring software engineer behind Skyrift Studios.
+          I'm specifically interested in the field of computer graphics, virtual reality, game design, and game engine architecture.
+          As for game development, I create rhythm games, bullet hell games, as well as tools and tutorials for fellow developers.
+        </p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Games</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Tutorials</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">2</span>
+            <span class="stat-label">Jams Hosted</span>
+          </div>
         </div>
-    </body>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <script>
-        function displayTool(x) {
-            let displayText = "";
-            let path = window.location.hostname +  "/icons/";
-            console.log(path);
-            let srcSplit = x.src.split('/');
-            let src = srcSplit[srcSplit.length - 1];
-            if (src == "csharp.svg") { displayText = "C#"}
-            else if (src == "unity.png") { displayText = "Unity Game Engine"}
-            else if (src == "java.svg") { displayText = "Java"}
-            else if (src == "kotlin.png") { displayText = "Kotlin"}
-            else if (src == "python.png") { displayText = "Python"}
-            else if (src == "javascript.png") { displayText = "Javascript"}
-            else if (src == "pygame.png") { displayText = "Pygame"}
-            else if (src == "Godot.png") { displayText = "Godot"}
-            document.getElementById("display-tool").textContent = displayText;
-        }
-        function resetDisplayTool() {
-            document.getElementById("display-tool").textContent = "‎‏‏‎ ‎";
-        }
-        resetDisplayTool();
-    </script>
+        <div class="tools-row">
+          <span class="tools-label">Tools &amp; Languages</span>
+          <div class="tools-list">
+            <span class="tool-badge">Unity / C#</span>
+            <span class="tool-badge">Godot</span>
+            <span class="tool-badge">Python / Pygame</span>
+            <span class="tool-badge">JavaScript</span>
+            <span class="tool-badge">Java</span>
+            <span class="tool-badge">Kotlin</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="panel" id="panel-contact">
+      <div class="contact-content">
+        <span class="contact-label">Get in Touch</span>
+        <h2 class="contact-headline">Start a conversation.</h2>
+        <div class="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="hello@example.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell me about your project or collab idea..."></textarea>
+          </div>
+          <button type="button" class="form-submit">Send Message</button>
+        </div>
+        <div class="contact-details">
+          <span>Direct</span>
+          <a href="mailto:skyriftstudios@gmail.com">skyriftstudios@gmail.com</a>
+          <span>Social</span>
+          <a href="https://skyansam.itch.io" target="_blank">itch.io &nbsp;/&nbsp; YouTube &nbsp;/&nbsp; Discord</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /left-side -->
+
+  <div class="split-divider"></div>
+
+  <!-- CANVAS -->
+  <div class="canvas-side" id="canvasSide">
+
+    <div class="canvas-placeholder" id="placeholder">
+      <div class="placeholder-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-10-10h4m12 0h4m-3.3-6.7-2.8 2.8m-5.8 5.8-2.8 2.8m0-11.3 2.8 2.8m5.8 5.8 2.8 2.8"/></svg>
+      </div>
+      <span class="placeholder-text">Select a project</span>
+    </div>
+
+    <!-- Games 0–4 -->
+    <div class="canvas-image" data-slide="0">
+      <div class="preview-card">
+        <div class="preview-emoji"></div>
+        <div class="preview-name">BezierBeatz</div>
+        <div class="preview-tag">Rhythm · Bullet Hell</div>
+        <div class="preview-desc">A rhythm bullet hell game combining the likes of dodging with 4K mania gameplay. This game is currently being developed.</div>
+        <a class="preview-link" href="https://skyansam.itch.io/bzbz" target="_blank">Play on itch.io ↗</a>
+      </div>
+      <div class="canvas-caption">
+        <div class="canvas-caption-title">BezierBeatz</div>
+        <div class="canvas-caption-year">Music / Puzzle</div>
+      </div>
+    </div>
+
+    <div class="canvas-image" data-slide="2">
+      <div class="preview-card">
+        <div class="preview-emoji"></div>
+        <div class="preview-name">Break It Down</div>
+        <div class="preview-tag">Rhythm · In Browser</div>
+        <div class="preview-desc">A mini game developed for the GMTK Game Jam with the objective to break as many collections as possible.</div>
+        <a class="preview-link" href="https://skyansam.itch.io/break-it-down" target="_blank">Play on itch.io ↗</a>
+      </div>
+      <div class="canvas-caption">
+        <div class="canvas-caption-title">Break It Down</div>
+        <div class="canvas-caption-year">Rhythm · Play in Browser</div>
+      </div>
+    </div>
+
+    <!-- Tutorials 5–7 -->
+    <div class="canvas-image" data-slide="5">
+      <div class="preview-card">
+        <div class="preview-emoji"></div>
+        <div class="preview-name">Rhythm Game Tutorial</div>
+        <div class="preview-tag">YouTube · Unity</div>
+        <div class="preview-desc">A step-by-step series on building a rhythm game framework from scratch in Unity. Covers charting using MIDI, note spawning and judgements.</div>
+        <a class="preview-link" href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank">Watch on YouTube ↗</a>
+      </div>
+      <div class="canvas-caption">
+        <div class="canvas-caption-title">Rhythm Game Tutorial</div>
+        <div class="canvas-caption-year">Unity · YouTube Series</div>
+      </div>
+    </div>
+
+    <div class="canvas-image" data-slide="6">
+      <div class="preview-card">
+        <div class="preview-emoji"></div>
+        <div class="preview-name">Bullet Hell Tutorial</div>
+        <div class="preview-tag">YouTube · Unity &amp; Godot</div>
+        <div class="preview-desc">Build a bullet hell framework in Unity or Godot from the ground up. Covers enemy patterns, projectile pooling, and player dodge mechanics.</div>
+        <a class="preview-link" href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank">Watch on YouTube ↗</a>
+      </div>
+      <div class="canvas-caption">
+        <div class="canvas-caption-title">Bullet Hell Tutorial</div>
+        <div class="canvas-caption-year">Unity / Godot · YouTube Series</div>
+      </div>
+    </div>
+
+    <div class="canvas-image" data-slide="7">
+      <div class="preview-card">
+        <div class="preview-emoji"></div>
+        <div class="preview-name">Google Docs Addon Tutorial</div>
+        <div class="preview-tag">YouTube · JavaScript</div>
+        <div class="preview-desc">A walkthrough of building a Google Docs addon from scratch using Apps Script — a great entry point into web-based developer tooling.</div>
+        <a class="preview-link" href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank">Watch on YouTube ↗</a>
+      </div>
+      <div class="canvas-caption">
+        <div class="canvas-caption-title">Google Docs Addon From Scratch</div>
+        <div class="canvas-caption-year">JavaScript · YouTube Tutorial</div>
+      </div>
+    </div>
+
+    <!-- Jams 8–9 -->
+    <div class="canvas-image" data-slide="8">
+      <div class="preview-card">
+        <div class="preview-emoji"></div>
+        <div class="preview-name">Bullet Hell Jam 2021</div>
+        <div class="preview-tag">Co-hosted · itch.io · April 2021</div>
+        <div class="preview-desc">A week-long jam to create a bullet hell game. 346 entries and 4,223 ratings, with a focus on creative mechanics and polish. Co-hosted with Harman Kamboj.</div>
+        <a class="preview-link" href="https://itch.io/jam/bullet-jam-2021" target="_blank">View Jam ↗</a>
+      </div>
+      <div class="canvas-caption">
+        <div class="canvas-caption-title"> Bullet Hell Jam</div>
+        <div class="canvas-caption-year">April 2021 · 346 Entries</div>
+      </div>
+    </div>
+
+    <div class="canvas-image" data-slide="9">
+      <div class="preview-card">
+        <div class="preview-emoji"></div>
+        <div class="preview-name">Rhythm Jam 2021</div>
+        <div class="preview-tag">Co-hosted · itch.io · July 2021</div>
+        <div class="preview-desc">A jam focused on making games with some aspect of rhythm. 87 entries, 943 ratings. Co-hosted with Harman Kamboj &amp; Arcy.</div>
+        <a class="preview-link" href="https://itch.io/jam/rhythm-jam-2021" target="_blank">View Jam ↗</a>
+      </div>
+      <div class="canvas-caption">
+        <div class="canvas-caption-title"> Rhythm Jam</div>
+        <div class="canvas-caption-year">July 2021 · 87 Entries</div>
+      </div>
+    </div>
+
+    <!-- Contexts -->
+    <div class="canvas-context" data-context="about">
+      <div class="context-links">
+        <a class="context-link" href="https://skyansam.itch.io" target="_blank">itch.io ↗</a>
+        <a class="context-link" href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank">YouTube ↗</a>
+        <a class="context-link" href="https://github.com/skyansam" target="_blank">GitHub ↗</a>
+        <a class="context-link" href="https://discord.gg/w58Xf8C3Jc" target="_blank">Discord ↗</a>
+        <a class="context-link" href="https://instagram.com/skyansam" target="_blank">Instagram ↗</a>
+        <a class="context-link" href="https://soundcloud.com/user-894828407" target="_blank">Soundcloud ↗</a>
+      </div>
+    </div>
+
+    <div class="canvas-context" data-context="contact">
+      <div class="canvas-context-quote">"If you would like to reach out about a game I've been working on or a collaboration idea feel free to reach me via email: skyriftstudios@gmail.com"</div>
+      <span class="canvas-context-attr">— skyriftstudios@gmail.com</span>
+      <div class="context-links">
+        <a class="context-link" href="https://skyansam.itch.io" target="_blank">itch.io ↗</a>
+        <a class="context-link" href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank">YouTube ↗</a>
+        <a class="context-link" href="https://github.com/skyansam" target="_blank">GitHub ↗</a>
+        <a class="context-link" href="https://discord.gg/w58Xf8C3Jc" target="_blank">Discord ↗</a>
+        <a class="context-link" href="https://instagram.com/skyansam" target="_blank">Instagram ↗</a>
+        <a class="context-link" href="https://soundcloud.com/user-894828407" target="_blank">Soundcloud ↗</a>
+      </div>
+    </div>
+
+  </div><!-- /canvas-side -->
+</div><!-- /split-container -->
+
+<footer class="site-footer">
+  <span>&copy; 2026 Skyrift Studios / SkyanSam. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="https://skyansam.itch.io" target="_blank">itch.io</a>
+    <span class="footer-dot">&middot;</span>
+    <a href="https://www.youtube.com/channel/UC1x_7-NPvFgfjnRBShAZ0hA" target="_blank">YouTube</a>
+    <span class="footer-dot">&middot;</span>
+    <a href="https://github.com/skyansam" target="_blank">GitHub</a>
+    <span class="footer-dot">&middot;</span>
+    <a href="https://discord.gg/w58Xf8C3Jc" target="_blank">Discord</a>
+    <span class="footer-dot">&middot;</span>
+    <a href="https://instagram.com/skyansam" target="_blank">Instagram</a>
+    <span class="footer-dot">&middot;</span>
+    <a href="https://soundcloud.com/user-894828407" target="_blank">Soundcloud</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const navLinks       = document.querySelectorAll('[data-nav]');
+  const panels         = document.querySelectorAll('.panel');
+  const canvasImages   = document.querySelectorAll('.canvas-image');
+  const canvasContexts = document.querySelectorAll('.canvas-context');
+  const placeholder    = document.getElementById('placeholder');
+  const allItems       = document.querySelectorAll('.project-item[data-index]');
+
+  let activeNav = 'games';
+
+  function switchNav(name) {
+    activeNav = name;
+    navLinks.forEach(a => a.classList.toggle('nav-active', a.dataset.nav === name));
+    panels.forEach(p => p.classList.toggle('panel-active', p.id === 'panel-' + name));
+    canvasContexts.forEach(c => c.classList.toggle('visible', c.dataset.context === name));
+
+    if (name === 'about' || name === 'contact') {
+      placeholder.classList.add('hidden');
+      canvasImages.forEach(c => c.classList.remove('visible'));
+    } else {
+      placeholder.classList.remove('hidden');
+      canvasImages.forEach(c => c.classList.remove('visible'));
+      allItems.forEach(i => i.classList.remove('is-active'));
+    }
+  }
+
+  navLinks.forEach(a => a.addEventListener('click', () => switchNav(a.dataset.nav)));
+
+  allItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      if (activeNav === 'about' || activeNav === 'contact') return;
+      const idx = parseInt(item.dataset.index);
+      placeholder.classList.add('hidden');
+      allItems.forEach(i => i.classList.remove('is-active'));
+      item.classList.add('is-active');
+      canvasImages.forEach((img, i) => img.classList.toggle('visible', i === idx));
+    });
+    item.addEventListener('mouseleave', () => item.classList.remove('is-active'));
+  });
+
+  ['gameList', 'tutorialList', 'jamList'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('mouseleave', () => {
+      if (activeNav === 'about' || activeNav === 'contact') return;
+      placeholder.classList.remove('hidden');
+      canvasImages.forEach(c => c.classList.remove('visible'));
+    });
+  });
+})();
+</script>
+</body>
 </html>
